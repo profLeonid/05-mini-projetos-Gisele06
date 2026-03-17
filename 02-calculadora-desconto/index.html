@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora de Desconto</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="./app.js"></script>
+  <script src="./app.js">defer</script>
 </head>
 
 <body>
@@ -20,12 +20,15 @@
       <p class="descricao">Informe o preço e o percentual de desconto.</p>
 
       <label>Preço Original (R$)</label>
-      <input id = 'valor' type="number" placeholder="Ex: 200" />
+      <input id = 'preco' type="number" placeholder="Ex: 200" />
+      <!-- <input id = 'valor' type="number" placeholder="Ex: 200" /> -->
 
       <label>Desconto (%)</label>
-      <input id = 'percentual' type="number" placeholder="Ex: 15" />
+      <input id = 'desconto' type="number" placeholder="Ex: 15" />
+      <!-- <input id = 'percentual' type="number" placeholder="Ex: 15" /> -->
 
-      <button onclick="calcularDesconto()">Calcular</button>
+      <button onclick="handClick()">Calcular</button>
+      <!-- <button onclick="calcularDesconto()">Calcular</button> -->
 
       <div class="resultado" id = 'resultado'>
         O resultado aparecerá aqui

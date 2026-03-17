@@ -1,27 +1,35 @@
-function removerClasses(){
+'use strict'
+const calcularMedia = (nota1, nota2, nota3) => (nota1 + nota2 + nota3) / 3  
 
-}
 
-function calcularMedia(){
-    const nota1 = document.getElementById('nota1')
-    const nota2 = document.getElementByI('nota2')
-    const nota3 = document.getElementById('nota3')
-    const resultado = document.getElementById('resultado')
+function definirSituacao(notaFinal){
     let status 
 
-    let media = (nota1.value + nota2.value + nota3.value)/3
-
-    resultado.textContent = status
-
-    removerClasses()
-    if(media >= 7){
-        resultado.classList.add('')
-
-    }else if(media >= 7){
-        resultado.classList.add('')
-
+    if(notaFinal >= 7){
+        status = 'aprovado'
+    }else if(notaFinal >= 5){
+        status = 'recuperacao'
     }else{
-        resultado.classList.add('')
+        status ='reprovado'
     }
-       
+    return status
 }
+
+function limparClasses(){
+    document.getElementById('resultado')
+    .classList.remove('aprovado', 'recuperacao', 'reprovado')
+}
+
+function handleClick(){
+    const nota1 = Number(document.getElementById('nota1').value)
+    const nota2 = Number(document.getElementById('nota2').value)
+    const nota3 = Number(document.getElementById('nota3').value)
+    const resultado = document.getElementById('resultado')
+
+    const notaFinal = calcularMedia(nota1, nota2, nota3)
+    const status = definirSituacao(notaFinal)
+
+    resultado.textContent = `A média final do(a) aluno(a) foi: ${notaFinal} / Status do aluno(a): ${status}`
+    limparClasses()
+    resultado.classList.add(status)
+} 
